@@ -1,0 +1,103 @@
+
+" ========================= Common Set ========================={{{
+set nocompatible
+set backspace=indent,eol,start
+set encoding=utf-8
+set cursorline      " 突出显示当前行
+"set cc=80           "高亮80列 cc=colorcolumn
+set history=50      " keep 50 lines of command line history
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set incsearch       " do incremental searching
+set laststatus=2    " bottom status line
+set showcmd         " show number of selected lines/size of selected blocks
+set nu!             " set number
+set hlsearch        " highlight search
+set autoindent
+set nobackup
+set ts=4 sw=4 et
+set showtabline=2
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autochdir
+
+set foldenable "启动折叠
+set foldmethod=marker "按照maker进行折叠
+filetype on
+"}}}
+
+" ========================= Key maps ========================= {{{
+"let mapleader=","
+vmap <leader>y "*y
+nmap <leader>p "*p
+"注意 map后面不能加注释
+imap jk <ESC>
+"整行下移 上移
+nmap <M-j> ddp
+nmap <M-k> kddpk
+nmap ∆ ddp
+nmap ˚ kddpk
+"Alt-q 退出
+nmap <M-q> :q<Cr>
+nmap œ :q<Cr>
+"alt-hjkl 在编辑模式下移动, 底下两种对应MAC下gui键盘和term键盘敲出来的字母
+imap <M-k> <Up>
+imap <M-j> <Down>
+imap <M-h> <left>
+imap <M-l> <Right>
+imap ë <Up>
+imap ê <Down>
+imap è <left>
+imap ì <Right>
+imap ˚ <Up>
+imap ∆ <Down>
+imap ˙ <left>
+imap ¬ <Right>
+"C-h b编辑左删除，C-l编辑向右删除
+inoremap <C-L> <DEL>
+nnoremap <C-L> <DEL>
+nnoremap <C-H> i<BS><ESC>l
+nnoremap <C-K> i<SPACE><ESC>l
+"C-j 换行
+nnoremap <C-j> i<CR><ESC>
+"display first line that contains the keyword under cursor
+"nmap <SPACE> [i
+"display first line that contains the keyword under cursor
+nmap <ENTER> [I
+
+vnoremap <C-C> "+y
+vnoremap <C-Insert> "+y
+" Shift s save
+nmap <S-S> :w<CR>
+"打开 关闭新标签页
+map tn :tabnew<cr>
+map tc :tabclose<cr>
+
+" 复制一个单词
+nnoremap cy yiw
+" 粘贴覆盖当前单词
+nnoremap cp viwp
+
+vnoremap <Tab>   >gv
+vnoremap <S-Tab> <gv
+imap <S-Tab> <C-p>
+
+" auto {} in c++
+inoremap {<CR> {<CR>}<ESC>O
+
+nmap * *N
+
+":q 经常被输成:Q 让:Q 也能退出
+nmap :Q :q
+
+"宏
+let @i="viwyjviwp"
+let @d="viwyjviwp"
+"noremap <F2> *N
+"inoremap <F2> <ESC>*N
+
+" delete \s*,;
+let @s="{v}:s/\s*\(,\|;\)/\1/g :noh "
+"
+"}}}
